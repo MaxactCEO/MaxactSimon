@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Formulär</title>
+<link rel="stylesheet" href="maxactsimon.css"
+  <style>
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+      <img src="vitlogga.png" alt="Maxact logga" width="135" height="140">
+  
+        <!-- Korrelationsruta -->
+        <div class="square">
+            <div class="sprint">Kategori</div>
+            Ingen korrelation funnen än
+        </div>
+
+        <!-- Här placeras grafen -->
+        <div id="chart_div"></div>
+
+        <!-- Ny container för mest frekventa vanor -->
+
+        <div id="habitStatsContainer" style="width: 100%; margin-bottom: 20px;"></div>
+
+        <div id="habitStatsContainer" class="repost-container"></div> 
+
+        <div id="frequentHabitsContainer" class="repost-container"></div> 
+
+        <!-- Repost Container -->
+        <div id="repostContainer" class="repost-container"></div>   
+
+
+        <center>
+          <hr>
+          <h3>Lägg till ny vana</h1>
+        </center>
+          
+        <form id="Enkät">
+            <!-- Kategori -->
+            <label for="Kategori">Kategori:</label>
+            <select id="Kategori" name="Kategori" required>
+                <option value="">Välj en kategori</option>
+                <option value="Kost">Kost</option>
+                <option value="Dryck">Dryck</option>
+                <option value="Träning">Träning</option>
+                <option value="Fysisk aktivitet">Fysisk aktivitet</option>
+                <option value="Fotbollsträning">Fotbollsträning</option>
+                <option value="Sömn">Sömn</option>
+                <option value="Övrigt">Övrigt</option>
+            </select>
+
+            <!-- Dynamiska fält -->
+            <div id="dynamic-fields"></div>
+
+            <!-- Datumfält -->
+            <label for="Datum">Datum:</label>
+            <input type="date" id="Datum" name="Datum" required>
+
+            <!-- Tidsfält -->
+            <label for="Tid">Tid:</label>
+            <input type="time" id="Tid" name="Tid" required>
+
+            <!-- Beskrivning -->
+            <label for="Beskrivning">Beskrivning:</label>
+            <textarea id="Beskrivning" name="Beskrivning" rows="4" placeholder="Beskriv din vana så utförligt som möjligt"></textarea>
+
+            <!-- Skicka-knapp -->
+            <input type="submit" value="Skicka">
+        </form>        
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    </script>
+    </div>
+  
+    <script src="maxactsimon.js"></script>
+
+</body>
+</html>

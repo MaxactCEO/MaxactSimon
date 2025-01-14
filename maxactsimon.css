@@ -1,0 +1,311 @@
+/* Grundläggande stil för body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #171946;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center; /* Centrera innehållet */
+  justify-content: center; /* Ytterligare centrering */
+}
+  
+/* Repost container stilar */
+.repost-container {
+    display: none; /* Initialt doldt */
+    max-height: 300px; /* Maxhöjd för scrollning */
+    width: 380px; /* Sätt en fast bredd */
+    overflow-y: auto; /* Aktivera vertikal scrollning */
+    overflow-x: hidden; /* Dölja horisontell scrollning */
+    margin-bottom: 20px; /* Ger utrymme mellan repost-container och formuläret */
+    margin-left: 20px;
+    border-radius: 5px; /* Rundade hörn */
+    background-color: #161743; /* Bakgrundsfärg */
+    padding: 10px; /* Inre marginal */
+}
+
+.repost {
+  background-color: #8897D2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  padding-right: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 340px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.repost-content {
+  flex-grow: 1;
+  color: #ffffff;
+}
+
+.repost-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.repost-details {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.repost-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.repost button {
+  background-color: #b7e659;
+  border: none;
+  color: #161743;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* Wrapper för att centrera innehåll */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.repost:hover {
+  transform: scale(1.02); /* Lätt förstoring vid hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.repost button:hover {
+  background-color: #a4d244; /* Mörkare nyans vid hover */
+  transform: translateY(-2px); /* Lätt lyft vid hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Skuggeffekt vid hover */
+}
+
+
+/* Titelstil */
+h2, p {
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Korrelationsruta */
+.square {
+  width: 340px;
+  height: 55px;
+  background-color: #171946;
+  border: 1px solid #b7e659;
+  border-radius: 7px;
+  position: relative;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  margin-top:-25px;
+}
+
+.sprint {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  padding-bottom: 10px;
+  color: rgb(255, 255, 255);
+}
+
+/* Grafstilar */
+#chart_div {
+  width: 360px;
+  max-width: 600px;
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Formulär */
+form {
+  width: 330px;
+  background-color: #8897D2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Stil för formulär etiketter och input */
+label, p {
+  color: #e7e7e7;
+  font-weight:regular;
+  display: block;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  height:35px;
+  padding: 8px;
+  margin-top: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+/* Skicka-knapp */
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #b7e659;
+  color: #161743;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* Effekt på knappen vid hover */
+input[type="submit"]:hover {
+  background-color: #a0c94d;
+}
+
+/* Dynamiska fält */
+#dynamic-fields {
+  margin-top: 10px;
+}
+#dynamic-fields label, #dynamic-fields input, #dynamic-fields select {
+  display: block;
+  margin-top: 5px;
+  width: 100%;
+}
+
+#toggleStatsButton {
+  width: 355px;
+  display: block;
+  margin: 20px center; /* Mellanrum och centrerat */
+  margin-bottom: 20px;
+  background-color: #b7e659;
+  color: #161743;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#toggleStatsButton:hover {
+  background-color: #a4d244;
+  transform: scale(1.05);
+}
+
+
+#toggleRepostButton {
+  width: 355px;
+  display: block;
+  margin: 10px center; /* Mellanrum och centrerat */
+  margin-bottom: 20px;
+  background-color: #b7e659;
+  color: #161743;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#toggleRepostButton:hover {
+  background-color: #a4d244;
+  transform: scale(1.05);
+}
+
+/* För att hålla repost-container i layouten även när den är dold */
+#repostContainer {
+  display: center;
+  margin: 0px center; /* Mellanrum och centrerat */
+  width: 370px;
+  margin-right: 30px;
+  padding: 0px 5px;
+  margin-top: 0px;
+  border-radius: 5px;
+}
+
+.habit-stat {
+background-color: #161743;
+color: #161743;
+width: 0px;
+height: 0px;
+padding: 10px;
+padding-right: -10000000;
+margin: 0px 0px;
+border-radius: 5px;
+text-align: center;
+}
+
+/* Ny stil för de mest frekventa vanorna */
+#frequentHabitsContainer {
+  display: none; /* Dold initialt */
+  margin-top: -70px;
+  display: center;
+  margin: center; /* Mellanrum och centrerat */
+  width: 365px;
+  margin-left: -15px;
+  padding: 0px 10px;
+}
+#habitStatsContainer{
+  display: center;
+  margin: 0px center; /* Mellanrum och centrerat */
+  width: 330px;
+  height:50px;
+  margin-right: 30px;
+  padding: 0px 5px;
+  margin-top: 0px;
+  font-size: medium;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+
+}
+
+ h3 {
+  width: 345px;
+  height: 20px;
+  border-radius: 7px;
+  padding: 0px;
+  align-items: center;
+  justify-content: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 15px;
+}
+
+hr{
+  margin-top:30px;
+  color:#ffffff;
+}
+
+img {
+  margin-top:-35px;
+}
