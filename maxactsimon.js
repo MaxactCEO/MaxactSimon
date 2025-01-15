@@ -27,6 +27,7 @@
       }
 
       // Repost funktionalitet
+      
       let recentHabits = JSON.parse(localStorage.getItem('recentHabits')) || []; // Ladda från localStorage
       let isDropdownVisible = false; // För att spåra visibilitet av rullgardinsmenyn
 
@@ -147,39 +148,38 @@
       }
 
       // Visa/Dölj rullgardinsmeny
-      function toggleDropdown() {
-          const container = document.getElementById("repostContainer");
-          isDropdownVisible = !isDropdownVisible;
-          container.style.display = isDropdownVisible ? "block" : "none";
-      }
+function toggleDropdown() {
+    const container = document.getElementById("repostContainer");
+    isDropdownVisible = !isDropdownVisible;
+    container.style.display = isDropdownVisible ? "block" : "none";
+}
 
-      document.addEventListener("DOMContentLoaded", () => {
-          renderRecentHabits();
-          
-          // Dölj repost-rutorna initialt
-          document.getElementById("repostContainer").style.display = "none";
 
-          // Skapa och placera knappen för att visa/dölja vanor
-          const toggleButton = document.createElement("button");
-          toggleButton.id = "toggleRepostButton";
-          toggleButton.textContent = "Visa alla vanor";
-          toggleButton.addEventListener("click", toggleDropdown);
+document.addEventListener("DOMContentLoaded", () => {
+    renderRecentHabits();
+    
+    // Dölj repost-rutorna initialt
+    document.getElementById("repostContainer").style.display = "none";
 
-          const chartDiv = document.getElementById("chart_div");
-          chartDiv.insertAdjacentElement("afterend", toggleButton);
+    // Skapa och placera knappen för att visa/dölja vanor
+    const toggleButton = document.createElement("button");
+    toggleButton.id = "toggleRepostButton";
+    toggleButton.textContent = "Visa alla vanor";
+    toggleButton.addEventListener("click", toggleDropdown);
 
-          // Skapa och placera knappen för att visa statistik
-          const statsButton = document.createElement("button");
-          const h3 = document.createElement("h3");
-          
-          statsButton.id = "toggleStatsButton";
-          statsButton.textContent = "Visa frekventa vanor";
-          statsButton.addEventListener("click", toggleStatsDisplay);
-          chartDiv.insertAdjacentElement("afterend", statsButton);
+    const chartDiv = document.getElementById("chart_div");
+    chartDiv.insertAdjacentElement("afterend", toggleButton);
 
-          // Dölj statistik initialt
-          document.getElementById("habitStatsContainer").style.display = "none";
-      });
+    // Skapa och placera knappen för att visa statistik
+    const statsButton = document.createElement("button");
+    statsButton.id = "toggleStatsButton";
+    statsButton.textContent = "Visa frekventa vanor";
+    statsButton.addEventListener("click", toggleStatsDisplay);
+    chartDiv.insertAdjacentElement("afterend", statsButton);
+
+    // Dölj statistik initialt
+    document.getElementById("habitStatsContainer").style.display = "none";
+});
 
       // Hålla reda på användningsfrekvens
       let habitUsageCount = JSON.parse(localStorage.getItem('habitUsageCount')) || {};
@@ -331,20 +331,20 @@ function getMostFrequentHabitDetails(category) {
           details = `${mostFrequentHabit["Typ av måltid"]} - ${mostFrequentHabit["Måltid"]}, ${mostFrequentHabit["Antal Portioner"]} portioner, ${mostFrequentHabit.Kalorier} kcal`;
           break;
       case "Träning":
-          details = `${mostFrequentHabit["Kropps Område"]} - ${mostFrequentHabit["Varaktighet totalt"]}min, ${mostFrequentHabit.Reps} reps, ${mostFrequentHabit.Sets} sets`;
+          details = `${mostFrequentHabit["Kropps Område"]} - ${mostFrequentHabit["Varaktighet totalt"]}min, ${mostFrequentHabit["Brända Kalorier"]} kcal, ${mostFrequentHabit.Reps} reps, ${mostFrequentHabit.Sets} sets`;
           break;
       case "Fotbollsträning":
           details = `${mostFrequentHabit["Vad tränade du"]} - ${mostFrequentHabit["Hur länge varade träningen"]}min`;
           break;
       case "Sömn":
-          details = `${mostFrequentHabit["Sömn"]} - ${mostFrequentHabit["Antal timmar du sov"]}min`;
+          details = `${mostFrequentHabit["Sömn"]} - ${mostFrequentHabit["Antal timmar du sov"]} tim`;
           break;
       case "Fysisk aktivitet":
           details = `${mostFrequentHabit["Fysisk Aktivitet"]} - ${mostFrequentHabit["Antal Kilometer"]}km`;
           break;
-     case "Kosttillskott":
+      case "Kosttillskott":
           details = `${mostFrequentHabit["Kosttillskott"]} - ${mostFrequentHabit["Gram kosttillskott"]}g`;
-          break;   
+          break;
       case "Övrigt":
           details = `${mostFrequentHabit["Övrig vana"]} - ${mostFrequentHabit["Vanans varaktighet"]}min`;
           break;
@@ -428,11 +428,13 @@ function getMostFrequentHabitDetails(category) {
               const selectedCategory = kategoriField.value;
               dynamicFieldsContainer.innerHTML = "";
 
+
               if (selectedCategory === "Dryck") {
                   dynamicFieldsContainer.innerHTML = `
                       <label for="Vilken Dryck">Vilken Dryck:</label>
                       <select id="Vilken Dryck" name="Vilken Dryck" required>
                           <option value="Vatten">Vatten</option>
+                          <option value="Mjölk">Mjölk</option>
                           <option value="Saft">Saft</option>
                           <option value="Läsk">Läsk</option>
                           <option value="Energi dryck">Energi dryck</option>
@@ -461,6 +463,7 @@ function getMostFrequentHabitDetails(category) {
                           <option value="Lunch">Lunch</option>
                           <option value="Middag">Middag</option>
                           <option value="Snack">Snack</option>
+
                       </select>
 
                       <label for="Måltid">Måltid:</label>
@@ -473,6 +476,7 @@ function getMostFrequentHabitDetails(category) {
 
                       <label for="Kalorier">Kalorier:</label>
                       <input type="text" id="Kalorier" name="Kalorier" placeholder="Skriv in kalorier" required>
+
                   `;
               } else if (selectedCategory === "Sömn") {
                   dynamicFieldsContainer.innerHTML = `
@@ -501,11 +505,17 @@ function getMostFrequentHabitDetails(category) {
                           <option value="Rygg">Rygg</option>
                           <option value="Axlar">Axlar</option>
                           <option value="Mage">Mage</option>
+                          <option value="Bröst">Bröst</option>
+                          <option value="Plyometrics">Plyometrics</option>
+                          <option value="Helkroppspass">Helkroppspass</option>
+                          <option value="Funktionspass">Funktionspass</option>
                           <option value="Övrigt">Övrigt</option>
                       </select>
 
                       <label for="Varaktighet totalt">Varaktighet totalt:</label>
                       <input type="text" id="Varaktighet totalt" name="Varaktighet totalt" placeholder="Hur många minuter tränade du området totalt" required>
+                      <label for="Brända Kalorier">Brända Kalorier:</label>
+                      <input type="text" id="Brända Kalorier" name="Brända Kalorier" placeholder="Hur många kalorier brände du under träningen?" required>
 
                       <label for="Antal reps">Antal Reps:</label>
                       <input type="text" id="Reps" name="Reps" placeholder="Hur många reps?" required>
@@ -531,6 +541,7 @@ function getMostFrequentHabitDetails(category) {
                         <label for="Kosttillskott">Kosttillskott:</label>
                         <input type="text" id="Kosttillskott" name="Gram kosttillskott" placeholder="Antal gram kosttillskott" required>
                     `;
+            
               } else if (selectedCategory === "Övrigt") {
                   dynamicFieldsContainer.innerHTML = `
                       <label for="Övrig Vana">Övrig vana:</label>
@@ -540,5 +551,7 @@ function getMostFrequentHabitDetails(category) {
                       <input type="text" id="Vanans varaktighet" name="Vanans varaktighet" placeholder="Hur många minuter tog det totalt" required>
                   `;
               }
+            
+                    
           });
       });
