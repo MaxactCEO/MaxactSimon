@@ -76,6 +76,9 @@
                   case "Fysisk aktivitet":
                       details = `${habit["Fysisk Aktivitet"]} - ${habit["Antal Kilometer"]}km`;
                       break;
+                  case "Kosttillskott":
+                      details = `${habit["Kosttillskott"]} - ${habit["Kosttillskott"]}g`;
+                      break;
                   case "Övrigt":
                       details = `${habit["Övrig vana"]} - ${habit["Vanans varaktighet"]}min`;
                       break;
@@ -264,6 +267,9 @@ function renderFrequentHabits() {
           case "Fysisk aktivitet":
               details = `(${getMostFrequentHabitDetails(category)})`;
               break;
+          case "Kosttillskott":
+              details = `(${getMostFrequentHabitDetails(category)})`;
+              break;
           case "Övrigt":
               details = `(${getMostFrequentHabitDetails(category)})`;
               break;
@@ -336,6 +342,9 @@ function getMostFrequentHabitDetails(category) {
       case "Fysisk aktivitet":
           details = `${mostFrequentHabit["Fysisk Aktivitet"]} - ${mostFrequentHabit["Antal Kilometer"]}km`;
           break;
+     case "Kosttillskott":
+          details = `${mostFrequentHabit["Kosttillskott"]} - ${mostFrequentHabit["Gram kosttillskott"]}g`;
+          break;   
       case "Övrigt":
           details = `${mostFrequentHabit["Övrig vana"]} - ${mostFrequentHabit["Vanans varaktighet"]}min`;
           break;
@@ -517,6 +526,11 @@ function getMostFrequentHabitDetails(category) {
                       <label for="Antal Kilometer">Antal Kilometer:</label>
                       <input type="text" id="Antal Kilometer" name="Antal Kilometer" placeholder="Antal km" required>
                   `;
+                } else if (selectedCategory === "Kosttillskott") {
+                    dynamicFieldsContainer.innerHTML = `
+                        <label for="Kosttillskott">Kosttillskott:</label>
+                        <input type="text" id="Kosttillskott" name="Gram kosttillskott" placeholder="Antal gram kosttillskott" required>
+                    `;
               } else if (selectedCategory === "Övrigt") {
                   dynamicFieldsContainer.innerHTML = `
                       <label for="Övrig Vana">Övrig vana:</label>
